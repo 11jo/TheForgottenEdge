@@ -1,0 +1,74 @@
+BACKUP ~TheForgottenEdge/backup~
+AUTHOR ~Secretum Nexum~
+VERSION ~0.1~
+
+// =====================================================================
+// Langues
+// =====================================================================
+
+LANGUAGE ~English~
+		~en_US~
+		~TheForgottenEdge/tra/english/main.tra~
+//LANGUAGE ~Français~ ~french~ ~TheForgottenEdge/tra/french/main.tra~
+
+// =====================================================================
+// 100 - The Forgotten Edge (Items,BG1EE,BG2EE)
+// =====================================================================
+
+BEGIN @100
+
+  // Items, Spells, Strings, resources used by The Forgotten Edge
+  COPY ~TheForgottenEdge/items/losw1h17.itm~ ~override~
+  SAY NAME1 @1000
+  SAY UNIDENTIFIED_DESC @1001
+  SAY NAME2 @1010
+  SAY DESC @1011
+
+  COPY ~TheForgottenEdge/items/losw1h18.itm~ ~override~
+  SAY NAME1 @1000
+  SAY NAME2 @1020
+  SAY DESC @1021
+
+  // BAM icons and description images
+  COPY ~TheForgottenEdge/bams/losw117i.bam~ ~override~
+  COPY ~TheForgottenEdge/bams/losw117c.bam~ ~override~
+  COPY ~TheForgottenEdge/bams/losw118i.bam~ ~override~
+  COPY ~TheForgottenEdge/bams/losw118c.bam~ ~override~
+
+  // Spell resources used by The Forgotten Edge
+  COPY ~TheForgottenEdge/spells/losw118a.spl~ ~override~
+  COPY ~TheForgottenEdge/spells/losw118b.spl~ ~override~
+  COPY ~TheForgottenEdge/spells/losw118c.spl~ ~override~
+
+BEGIN @101
+REQUIRE_PREDICATE GAME_IS ~bgee~ @102
+
+  // Creature resources used by The Forgotten Edge
+  COPY ~TheForgottenEdge/creatures/GNOLLPER.CRE~ ~override~
+
+  // Dialog resources used by The Forgoetten Edge
+  ACTION_IF FILE_EXISTS_IN_GAME ~perdue.dlg~ BEGIN
+  COMPILE ~TheForgottenEdge/dialogs/perdue.d~
+    USING ~TheForgottenEdge/tra/english/dialog.tra~
+  END
+
+BEGIN @103
+REQUIRE_PREDICATE GAME_IS ~bg2ee~ @104
+
+  // Store resources used by The Forgotten Edge
+  COPY_EXISTING ~BERNARD2.sto~ ~override~
+    ADD_STORE_ITEM ~losw1h17~ #0 #0 #0 ~IDENTIFIED~ #1
+  BUT_ONLY_IF_IT_CHANGES
+
+  ACTION_IF FILE_EXISTS_IN_GAME ~WSMITH01.dlg~ BEGIN
+  COMPILE ~TheForgottenEdge/dialogs/wsmith01.d~
+    USING ~TheForgottenEdge/tra/english/dialog.tra~
+  END
+
+  EXTEND_BOTTOM ~AR0334.BCS~ ~TheForgottenEdge/scripts/fear0334.baf~
+
+
+
+// TODO :
+  // - éventuellement : ADD_STORE_ITEM pour ajouter l'épée chez un marchand
+  // - ou patch d'une créature / coffre pour la placer en loot

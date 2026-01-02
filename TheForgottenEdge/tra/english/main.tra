@@ -1,0 +1,33 @@
+// =====================================================================
+// BG_Fun_Tweaks - EN texts
+// =====================================================================
+
+@100 = ~The Forgotten Edge - Items~
+@101 = ~The Forgotten Edge - BG1EE (General group)~
+@102 = ~BG1EE and SoD~
+@103 = ~The Forgotten Edge - BG2EE (General group)~
+@104 = ~BG2EE~
+
+// ---------- 100 - Perdue's Sword reworked ----------
+@1000 = ~Perdue's Sword~
+@1001 = ~This sword appears old, its edge dulled by time and neglect.~
+
+@1010 = ~The Forgotten Edge +2~
+@1011 = ~This blade, once wielded by Perdue, has been subtly reworked by a meticulous adventurer.
+It preserves the spirit of the original weapon while correcting its flaws and enhancing its balance.
+
+Equipped abilities:
+- +2 bonus to attack and damage
+- Inflicts minor acid damage
+- 10% chance on hit to grant invisibility for a short duration~
+
+@1020 = ~The Forgotten Edge +3~
+@1021 = ~This perfected incarnation of the Forgotten Edge reveals its true nature.
+
+Forged for those who walk the line between steel and shadow, the blade exudes a corrosive aura that eats through armor and flesh alike.
+
+Equipped abilities:
+- +3 bonus to attack and damage
+- Inflicts acid damage
+- 15% chance on hit to grant improved invisibility and improved haste
+- Critical hits unleash devastating acid and disease effects~
