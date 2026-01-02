@@ -1,3 +1,4 @@
+// BG1
 @2000 = ~Perdue… about this blade. I’ve seen it before.~
 @2001 = ~Aye… that’s my old sword. But not as it was. The balance is cleaner, the edge keener—and there’s a bite to it I don’t like.
 Whatever you did… you made it mean. Keep it away from me.~
@@ -5,16 +6,18 @@ Whatever you did… you made it mean. Keep it away from me.~
 @2003 = ~Perdue's Short Sword
 
 Perdue refused to take back her sword. No matter, it seems to be of very good quality.~
+
+// BG2
 @3000 = ~About this blade…~
 @3001 = ~Hah… Perdue’s blade, is it? Light in the hand. And that bite of yours… acid, I’d wager.
 I could temper it proper—make it sing.~
 @3002 = ~No, I don't think so. Anything else of use?~
 @3003 = ~Bring me five potions o’ invisibility, five potions o’ speed… and 5,000 gold.
 Leave it with me a day, and I’ll give you something worth the steel.~
-@3005 = ~There. Balanced, hardened, and mean. Try not to melt your own boots with it.~
+//@3005 = ~There. Balanced, hardened, and mean. Try not to melt your own boots with it.~
 @3007 = ~You have potions o’ invisibility, potions o’ speed, don't you? And the sword too. I could temper that blade… Acid, invisibility, and speed, an a nasty brew…~
 @3008 = ~What's involved in that?~
 @3009 = ~Two things, me friend. It will cost ye 5000 gp for the work, no less, and without an apprentice, ye'll have to stay here a full day and help me run the forge.~
 @3010 = ~That sounds fine. Let's do it.~
-@3011 = ~As ye wish. Fer such a commission, we can start on it right away. No sense in wasting time, then... it be best if we just get to it.~
-@3013 = ~Well, there ye go, me friend. Use it well. And if ye comes across anything else of interest, ye knows where to bring it, aye?~
+//@3011 = ~As ye wish. Fer such a commission, we can start on it right away. No sense in wasting time, then... it be best if we just get to it.~
+//@3013 = ~Well, there ye go, me friend. Use it well. And if ye comes across anything else of interest, ye knows where to bring it, aye?~

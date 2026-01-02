@@ -1,15 +1,9 @@
 IF
 	Global("FE_ForgeItem","GLOBAL",1)
-	Global("FE_ForgeStuff","GLOBAL",1)
+	Global("ForgeItem","GLOBAL",1)
 THEN
 	RESPONSE #100
-		 SetGlobal("ForgeItem","GLOBAL",1)
-		 SetGlobal("ForgeStuff","GLOBAL",0)
-		 SetGlobal("FE_ForgeItem","GLOBAL",0)
-		 SetGlobal("FE_ForgeStuff","GLOBAL",0)
-		 TakePartyItemNum("POTN10",4)
-     		 TakePartyItemNum("POTN14",4)
-     		 TakePartyItemNum("losw1h17",1)
-     		 GiveItemCreate("losw1h18",Player1,0,0,0)
-		 ActionOverride("wsmith01",StartDialogueNoSet([PC]))
+		SetGlobal("FE_ForgeItem","GLOBAL",0)
+		GiveItemCreate("losw1h18",Player1,0,0,0)
+		ActionOverride("wsmith01",StartDialogueNoSet([PC]))
 END

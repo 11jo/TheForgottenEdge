@@ -4,9 +4,10 @@
 
 @100 = ~The Forgotten Edge - Items~
 @101 = ~The Forgotten Edge - BG1EE (General group)~
-@102 = ~BG1EE and SoD~
+@102 = ~For BGEE and EET~
 @103 = ~The Forgotten Edge - BG2EE (General group)~
-@104 = ~BG2EE~
+@104 = ~BG2EE and EET~
+@105 = ~For BGEE / BG2EE and EET~
 
 // ---------- 100 - Perdue's Sword reworked ----------
 @1000 = ~Perdue's Sword~

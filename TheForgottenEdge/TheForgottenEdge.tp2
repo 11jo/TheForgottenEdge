@@ -1,13 +1,27 @@
 BACKUP ~TheForgottenEdge/backup~
 AUTHOR ~Secretum Nexum~
-VERSION ~0.1~
+VERSION ~0.2~
+
+AUTO_EVAL_STRINGS
+
+ALWAYS
+
+ACTION_IF GAME_IS ~eet~ THEN BEGIN
+	OUTER_SPRINT "eet_2" "2"
+END ELSE BEGIN
+	OUTER_SPRINT "eet_2" ""
+END
+
+END // ALWAYS
 
 // =====================================================================
 // Langues
 // =====================================================================
 
+AUTO_TRA ~TheForgottenEdge/tra/%s~
+
 LANGUAGE ~English~
-		~en_US~
+		~english~
 		~TheForgottenEdge/tra/english/main.tra~
 //LANGUAGE ~Français~ ~french~ ~TheForgottenEdge/tra/french/main.tra~
 
@@ -16,6 +30,11 @@ LANGUAGE ~English~
 // =====================================================================
 
 BEGIN @100
+DESIGNATED 0
+LABEL ~Secretum_Nexum-TheForgottenEdge~
+REQUIRE_PREDICATE GAME_IS ~eet bgee bg2ee~ @105
+
+////////////// Base additions //////////////
 
   // Items, Spells, Strings, resources used by The Forgotten Edge
   COPY ~TheForgottenEdge/items/losw1h17.itm~ ~override~
@@ -40,33 +59,77 @@ BEGIN @100
   COPY ~TheForgottenEdge/spells/losw118b.spl~ ~override~
   COPY ~TheForgottenEdge/spells/losw118c.spl~ ~override~
 
-BEGIN @101
-REQUIRE_PREDICATE GAME_IS ~bgee~ @102
+////////////// ////////////// ////////////// //////////////
 
-  // Creature resources used by The Forgotten Edge
-  COPY ~TheForgottenEdge/creatures/GNOLLPER.CRE~ ~override~
+//BEGIN @101
+//DESIGNATED 1
+//LABEL ~Secretum_Nexum-TheForgottenEdge-bgee~
+//REQUIRE_PREDICATE GAME_IS ~eet bgee~ @102
+//REQUIRE_PREDICATE (MOD_IS_INSTALLED ~TheForgottenEdge.tp2~ ~0~) ~Main componant need to be installed~
 
-  // Dialog resources used by The Forgoetten Edge
-  ACTION_IF FILE_EXISTS_IN_GAME ~perdue.dlg~ BEGIN
-  COMPILE ~TheForgottenEdge/dialogs/perdue.d~
-    USING ~TheForgottenEdge/tra/english/dialog.tra~
-  END
+////////////// BGEE additions //////////////
 
-BEGIN @103
-REQUIRE_PREDICATE GAME_IS ~bg2ee~ @104
+ACTION_IF GAME_IS ~eet bgee~ BEGIN // BGEE part
 
-  // Store resources used by The Forgotten Edge
-  COPY_EXISTING ~BERNARD2.sto~ ~override~
-    ADD_STORE_ITEM ~losw1h17~ #0 #0 #0 ~IDENTIFIED~ #1
-  BUT_ONLY_IF_IT_CHANGES
+	// Creature resources used by The Forgotten Edge
+	COPY_EXISTING ~GNOLLPER.CRE~ ~override~
+		REPLACE_CRE_ITEM ~losw1h17~ #0 #0 #0 ~unstealable~ ~qitem2~
 
-  ACTION_IF FILE_EXISTS_IN_GAME ~WSMITH01.dlg~ BEGIN
-  COMPILE ~TheForgottenEdge/dialogs/wsmith01.d~
-    USING ~TheForgottenEdge/tra/english/dialog.tra~
-  END
+	// Dialog resources used by The Forgotten Edge
+	ACTION_IF FILE_EXISTS_IN_GAME ~perdue.dlg~ BEGIN
+		COMPILE EVALUATE_BUFFER ~TheForgottenEdge/dialogs/perdue.d~ USING ~TheForgottenEdge/tra/%s/dialog.tra~
+	END
 
-  EXTEND_BOTTOM ~AR0334.BCS~ ~TheForgottenEdge/scripts/fear0334.baf~
+END // End BGEE part
 
+////////////// ////////////// ////////////// //////////////
+
+//BEGIN @103
+//DESIGNATED 2
+//LABEL ~Secretum_Nexum-TheForgottenEdge-bg2ee~
+//REQUIRE_PREDICATE GAME_IS ~eet bg2ee~ @104
+//REQUIRE_PREDICATE (MOD_IS_INSTALLED ~TheForgottenEdge.tp2~ ~0~) ~Main componant need to be installed~
+
+////////////// BG2EE additions //////////////
+
+ACTION_IF GAME_IS ~eet bg2ee~ BEGIN // BG2EE part
+
+	// Store resources used by The Forgotten Edge
+
+//	ACTION_IF NOT GAME_IS ~eet~ BEGIN // No need to add the sword for EET to avoid duplicate ?
+
+		// Store
+		COPY_EXISTING ~BERNARD2.sto~ ~override~
+			ADD_STORE_ITEM ~losw1h17~ #0 #0 #0 ~IDENTIFIED~ #1
+		BUT_ONLY_IF_IT_CHANGES
+
+		// Creature
+		COPY_EXISTING ~LEHTIN.CRE~ ~override~
+			ADD_CRE_ITEM ~losw1h17~ #0 #0 #0 ~identified&unstealable~ ~INV~
+
+		// Container
+		COPY_EXISTING ~AR0406.ARE~         ~override~ 
+			LPF ADD_AREA_ITEM
+				INT_VAR
+				container_to_add_to = ~14~
+				STR_VAR
+				item_to_add = ~losw1h17~
+				flags = ~IDENTIFIED~
+			END
+				BUT_ONLY
+
+//	END // End No need to add the sword for EET to avoid duplicate ?
+
+
+	ACTION_IF FILE_EXISTS_IN_GAME ~WSMITH01.dlg~ BEGIN
+		COMPILE ~TheForgottenEdge/dialogs/wsmith01.d~ USING ~TheForgottenEdge/tra/%s/dialog.tra~
+	END
+
+	EXTEND_BOTTOM ~AR0334.BCS~ ~TheForgottenEdge/scripts/fear0334.baf~
+
+END // End BG2EE part
+
+////////////// ////////////// ////////////// //////////////
 
 
 // TODO :
