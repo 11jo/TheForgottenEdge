@@ -61,12 +61,6 @@ REQUIRE_PREDICATE GAME_IS ~eet bgee bg2ee~ @105
 
 ////////////// ////////////// ////////////// //////////////
 
-//BEGIN @101
-//DESIGNATED 1
-//LABEL ~Secretum_Nexum-TheForgottenEdge-bgee~
-//REQUIRE_PREDICATE GAME_IS ~eet bgee~ @102
-//REQUIRE_PREDICATE (MOD_IS_INSTALLED ~TheForgottenEdge.tp2~ ~0~) ~Main componant need to be installed~
-
 ////////////// BGEE additions //////////////
 
 ACTION_IF GAME_IS ~eet bgee~ BEGIN // BGEE part
@@ -76,19 +70,11 @@ ACTION_IF GAME_IS ~eet bgee~ BEGIN // BGEE part
 		REPLACE_CRE_ITEM ~losw1h17~ #0 #0 #0 ~unstealable~ ~qitem2~
 
 	// Dialog resources used by The Forgotten Edge
-	ACTION_IF FILE_EXISTS_IN_GAME ~perdue.dlg~ BEGIN
 		COMPILE EVALUATE_BUFFER ~TheForgottenEdge/dialogs/perdue.d~ USING ~TheForgottenEdge/tra/%s/dialog.tra~
-	END
 
 END // End BGEE part
 
 ////////////// ////////////// ////////////// //////////////
-
-//BEGIN @103
-//DESIGNATED 2
-//LABEL ~Secretum_Nexum-TheForgottenEdge-bg2ee~
-//REQUIRE_PREDICATE GAME_IS ~eet bg2ee~ @104
-//REQUIRE_PREDICATE (MOD_IS_INSTALLED ~TheForgottenEdge.tp2~ ~0~) ~Main componant need to be installed~
 
 ////////////// BG2EE additions //////////////
 
@@ -102,7 +88,7 @@ ACTION_IF GAME_IS ~eet bg2ee~ BEGIN // BG2EE part
 		COPY_EXISTING ~BERNARD2.sto~ ~override~
 			ADD_STORE_ITEM ~losw1h17~ #0 #0 #0 ~IDENTIFIED~ #1
 		BUT_ONLY_IF_IT_CHANGES
-
+/*
 		// Creature
 		COPY_EXISTING ~LEHTIN.CRE~ ~override~
 			ADD_CRE_ITEM ~losw1h17~ #0 #0 #0 ~identified&unstealable~ ~INV~
@@ -117,13 +103,11 @@ ACTION_IF GAME_IS ~eet bg2ee~ BEGIN // BG2EE part
 				flags = ~IDENTIFIED~
 			END
 				BUT_ONLY
-
+*/
 //	END // End No need to add the sword for EET to avoid duplicate ?
 
 
-	ACTION_IF FILE_EXISTS_IN_GAME ~WSMITH01.dlg~ BEGIN
 		COMPILE ~TheForgottenEdge/dialogs/wsmith01.d~ USING ~TheForgottenEdge/tra/%s/dialog.tra~
-	END
 
 	EXTEND_BOTTOM ~AR0334.BCS~ ~TheForgottenEdge/scripts/fear0334.baf~
 
@@ -131,7 +115,3 @@ END // End BG2EE part
 
 ////////////// ////////////// ////////////// //////////////
 
-
-// TODO :
-  // - éventuellement : ADD_STORE_ITEM pour ajouter l'épée chez un marchand
-  // - ou patch d'une créature / coffre pour la placer en loot

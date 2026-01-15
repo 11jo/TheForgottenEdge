@@ -20,9 +20,19 @@ It preserves the spirit of the original weapon while correcting its flaws and en
 STATISTICS:
 
 Equipped abilities:
-- +2 bonus to attack and damage
 - Inflicts minor acid damage
-- 10% chance on hit to grant invisibility for a short duration~
+- 10% chance on hit to grant invisibility for a short duration
+
+THAC0: +2
+Damage: 1d6 +2 (Piercing)
+Speed Factor: 2
+Proficiency Type: Short sword
+Type: One-Handed
+
+Requires: 
+- 5 Strength
+
+Weight: 3~
 
 @1020 = ~The Forgotten Edge +3~
 @1021 = ~This perfected incarnation of the Forgotten Edge reveals its true nature.
@@ -32,7 +42,20 @@ Forged for those who walk the line between steel and shadow, the blade exudes a 
 STATISTICS:
 
 Equipped abilities:
-- +3 bonus to attack and damage
 - Inflicts acid damage
-- 15% chance on hit to grant improved invisibility and improved haste
-- Critical hits unleash devastating acid and disease effects~
+- 15% chance on hit to grant improved invisibility and improved haste,  for 15 seconds
+- Critical hits unleash devastating acid and disease effects
+
+Charge ability : 
+- Protection From Acid for 20 seconds, 1x per day
+
+THAC0: +3
+Damage: 1d6 +3 (Piercing)
+Speed Factor: 0
+Proficiency Type: Short sword
+Type: One-Handed
+
+Requires: 
+- 5 Strength
+
+Weight: 3~
